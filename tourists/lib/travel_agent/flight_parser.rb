@@ -8,9 +8,11 @@ module TravelAgent
     
     def parse
       
-      File.open @filepath do |file|
-        
+      file = File.new(@filepath, 'r')
+      while (line = file.gets)
+        puts line
       end
+      file.close
       
     end
     
