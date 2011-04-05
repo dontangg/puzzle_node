@@ -23,7 +23,7 @@ class RouteFinderTest < Test::Unit::TestCase
     route_finder = RouteFinder.new
     times = route_finder.find_cheapest(start_airport, 'Z')
     
-    assert_equal false, times.nil?, "RouteFinder#find_fastest should not return nil when a route exists"
+    assert_equal false, times.nil?, "RouteFinder#find_cheapest should not return nil when a route exists"
     assert_equal 3, times.size
     assert times.respond_to?(:"[]") # Ensure that we can retrieve like an array
   end
