@@ -1,3 +1,5 @@
+require 'time'
+
 module TravelAgent
   class RouteFinder
     
@@ -34,7 +36,7 @@ module TravelAgent
       
       @already_visited.pop # Remove this airport from the visited list
       
-      fastest_depart_at, fastest_arrive_at, fastest_cost
+      [fastest_depart_at, fastest_arrive_at, fastest_cost]
     end
     
     def find_cheapest(start_node, destination)

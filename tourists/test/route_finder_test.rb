@@ -1,4 +1,6 @@
 require 'test/unit'
+require 'travel_agent/airport'
+require 'travel_agent/flight'
 require 'travel_agent/route_finder'
 
 class RouteFinderTest < Test::Unit::TestCase
@@ -10,8 +12,9 @@ class RouteFinderTest < Test::Unit::TestCase
     route_finder = RouteFinder.new
     times = route_finder.find_fastest(start_airport, 'Z')
     
-    assert_equal 2, times.size
-    assert times.respond_to(:"[]") # Ensure that we can retrieve like an array
+    assert_equal false, times.nil?, "RouteFinder#find_fastest should not return nil when a route exists"
+    assert_equal 3, times.size
+    assert times.respond_to?(:"[]") # Ensure that we can retrieve like an array
   end
   
   def test_find_cheapest_returns_start_and_end_times
@@ -20,8 +23,9 @@ class RouteFinderTest < Test::Unit::TestCase
     route_finder = RouteFinder.new
     times = route_finder.find_cheapest(start_airport, 'Z')
     
-    assert_equal 2, times.size
-    assert times.respond_to(:"[]") # Ensure that we can retrieve like an array
+    assert_equal false, times.nil?, "RouteFinder#find_fastest should not return nil when a route exists"
+    assert_equal 3, times.size
+    assert times.respond_to?(:"[]") # Ensure that we can retrieve like an array
   end
   
   private
