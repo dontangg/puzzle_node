@@ -8,6 +8,7 @@ Usage
 -----
 
     bin/find_routes.rb [input.txt]
+    bin/find_routes.rb [input.txt] > output.txt
 
 Explanation
 -----------
@@ -31,3 +32,8 @@ took longer time, but still arrived in city D in time to take a more
 advantageous flight out of city D that makes up for the time lost by taking a
 longer flight there.  More complications arise when trying to find the cheapest
 route.
+
+Because of this, I basically decided to resort to visiting every possible
+combination of nodes.  I used a recursive implementation.  You just have to call
+`find_fastest` on the start airport.  It goes through all its flights and calls
+`find_fastest` on each of its destination airports until it arrives at 'Z'.
