@@ -7,4 +7,4 @@ I am putting these out on GitHub for a couple reasons.  First, I want a centrali
 
 I'm putting each solution in a folder in this Git repository.  Go to the corresponding folder to find a README specific to that puzzle.
 
-I am currently working on the tourists solution
+I have recently finished (I think) the tourists puzzle and I'm currently working on the robots vs lasers puzzle.

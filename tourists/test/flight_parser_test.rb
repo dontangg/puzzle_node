@@ -9,7 +9,7 @@ class FlightParserTest < Test::Unit::TestCase
   end
 
   def test_parse_creates_correct_number_of_sets_of_flights
-    assert @start_airports.length == 2
+    assert_equal 2, @start_airports.length
   end
   
   def test_parse_creates_airports_correctly
