@@ -7,8 +7,8 @@ the cheapest route.
 Usage
 -----
 
-    bin/find_routes.rb [input.txt]
-    bin/find_routes.rb [input.txt] > output.txt
+    ruby -I"lib" bin/find_routes.rb [input.txt]
+    ruby -I"lib" bin/find_routes.rb [input.txt] > output.txt
 
 Explanation
 -----------
