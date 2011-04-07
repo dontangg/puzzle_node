@@ -34,5 +34,13 @@ class ConveyorTest < Test::Unit::TestCase
     
     assert_equal :west, conveyor.path_of_least_damage
   end
+
+  def test_conveyor_correctly_directs_with_sample_input_file
+    conveyors = ConveyorParser.parse('test/files/sample-input.txt')
+
+    assert_equal :west, conveyors[0].path_of_least_damage
+    assert_equal :east, conveyors[1].path_of_least_damage
+    assert_equal :west, conveyors[2].path_of_least_damage
+  end
   
 end
