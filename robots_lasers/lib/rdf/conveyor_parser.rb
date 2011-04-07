@@ -1,3 +1,5 @@
+require 'rdf/conveyor'
+
 module RDF
   class ConveyorParser
 
@@ -12,35 +14,31 @@ module RDF
         # Go through any empty lines we may have
         while (line = file.gets.strip) == ""; end if line.strip == ""
 
+        conveyor = Conveyor.new
+
         # Create a line of lasers
-        north_lasers = []
-        line.each_char do |c|
-          if c == '#'
-            north_lasers << 0
-          else
-            north_lasers << 1
-          end
+        line.chomp.each_char do |c|
+          conveyor.north_lasers << (c == '#' ? nil : 1)
         end
         
         # Get the robot location
         line = file.gets.strip
-        robot_loc = 0
-        line.each_char do |c|
+        line.chomp.each_char do |c|
           break if c == 'X'
-          robot_loc += 1
+          conveyor.robot_location += 1
         end
 
         # Create another line of lasers
+        line = file.gets.strip
         south_lasers = []
-        line.each_char do |c|
-          if c == '#'
-            south_lasers << 0
-          else
-            south_lasers << 1
-          end
+        line.chomp.each_char do |c|
+          conveyor.south_lasers << (c == '#' ? nil : 1)
         end
 
+        conveyors << conveyor
       end
+      
+      conveyors
     end
 
   end
